@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1519985176271-dd0b10000010');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            transition: background-color 0.5s;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 300px;
+        }
+        .container input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+        }
+        .container button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #218838;
+        }
+        .message-container {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 500px;
+            position: relative;
+        }
+        .message-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .firework {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: red;
+            border-radius: 50%;
+            animation: firework 2s linear infinite;
+        }
+        @keyframes firework {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div class="message-container" id="message-container">
+        <img src="https://cdn.cdnparenting.com/articles/2020/05/10121728/Eid-ul-Fitr-Wishes.webp" alt="Eid Mubarak">
+        <div class="fireworks">
+            <div class="firework" style="left: 20%; top: 20%; background-color: red; animation-delay: 0s;"></div>
+            <div class="firework" style="left: 40%; top: 30%; background-color: blue; animation-delay: 0.5s;"></div>
+            <div class="firework" style="left: 60%; top: 40%; background-color: green; animation-delay: 1s;"></div>
+            <div class="firework" style="left: 80%; top: 50%; background-color: yellow; animation-delay: 1.5s;"></div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === 'HAMDAN' && password === 'admin1234') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('message-container').style.display = 'block';
+                document.body.style.backgroundColor = getRandomColor();
+            } else {
+                alert('Invalid username or password');
+            }
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
