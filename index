@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eid Mubarak Login</title>
     <style>
+
+body::after {
+    content: 'Visit our website: ';
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+body::after {
+    content: url('https://username.github.io/repository-name');
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -103,6 +117,7 @@
             <div class="firework" style="left: 60%; top: 40%; background-color: green; animation-delay: 1s;"></div>
             <div class="firework" style="left: 80%; top: 50%; background-color: yellow; animation-delay: 1.5s;"></div>
         </div>
+        <p>Visit our website: <a href="https://username.github.io/repository-name" target="_blank">GitHub Pages</a></p>
     </div>
 
     <script>
@@ -127,5 +142,14 @@
             return color;
         }
     </script>
+function showGitHubPagesLink() {
+    const link = document.createElement('a');
+    link.href = 'https://username.github.io/repository-name';
+    link.target = '_blank';
+    link.textContent = 'Visit our website';
+    document.body.appendChild(link);
+}
+
+showGitHubPagesLink();
 </body>
 </html>
